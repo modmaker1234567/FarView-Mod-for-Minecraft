@@ -36,6 +36,7 @@ public final class FarViewRenderer {
                     .withFragmentShader(FarViewClient.id("core/farview"))
                     .withShaderDefine("ALPHA_CUTOUT", 0.1f)
                     .withShaderDefine("PER_FACE_LIGHTING")
+                    .withShaderDefine("NO_OVERLAY")
                     .withCull(false)
                     .withColorTargetState(ColorTargetState.DEFAULT)
                     .build());
@@ -43,7 +44,6 @@ public final class FarViewRenderer {
             RenderSetup.builder(FARVIEW_PIPELINE)
                     .withTexture("Sampler0", TextureAtlas.LOCATION_BLOCKS)
                     .useLightmap()
-                    .useOverlay()
                     .createRenderSetup());
 
     private static RenderPipeline registerPipeline(RenderPipeline pipeline) {
